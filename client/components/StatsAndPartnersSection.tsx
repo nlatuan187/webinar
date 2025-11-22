@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 export default function StatsAndPartnersSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -101,7 +102,12 @@ export default function StatsAndPartnersSection() {
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
-          <div className="max-w-4xl mx-auto">
+          <motion.div
+            className="max-w-4xl mx-auto"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
             <div className="relative max-w-4xl mx-auto">
               {/* Carousel Container */}
               <div className="relative overflow-hidden">
@@ -151,7 +157,7 @@ export default function StatsAndPartnersSection() {
                 <div className={`testimonial-slide ${currentSlide === 1 ? "" : "hidden"} bg-white rounded-lg border border-[#CFCFD1] p-4 mb-5 sm:p-6 shadow-lg transition-all duration-500`}>
                   <div className="flex items-start gap-4">
                     <img
-                      src="Rectangle 34624580.png"
+                      src="/Rectangle 34624580.png"
                       alt="Chị Thắm Bin"
                       className="w-24 h-24 sm:w-40 sm:h-40 flex-shrink-0 rounded-lg object-cover"
                     />
@@ -208,7 +214,12 @@ export default function StatsAndPartnersSection() {
 
 
             </div>
-            <div className="rounded-[20px] border border-white/70 bg-gradient-to-b from-white/35 to-white/0 backdrop-blur-md p-8 lg:p-12">
+            <motion.div
+              className="rounded-[20px] border border-white/70 bg-gradient-to-b from-white/35 to-white/0 backdrop-blur-md p-8 lg:p-12"
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
               <h2 className="text-2xl sm:text-3xl lg:text-[32px] font-semibold text-white text-center mb-12">
                 Những con số biết nói
               </h2>
@@ -240,19 +251,34 @@ export default function StatsAndPartnersSection() {
                   </p>
                 </div>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
       <section className="py-16 lg:py-24 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-12">
-          <h2 className="text-3xl sm:text-4xl lg:text-[50px] font-semibold text-[#0D0F2C] text-center mb-12 lg:mb-16">
+          <motion.h2
+            className="text-3xl sm:text-4xl lg:text-[50px] font-semibold text-[#0D0F2C] text-center mb-12 lg:mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
             Đối tác của chúng tôi
-          </h2>
+          </motion.h2>
 
-          <div className="max-w-5xl mx-auto space-y-8">
-            <div className="flex flex-wrap items-center justify-center gap-8 lg:gap-10">
+          <motion.div
+            className="max-w-5xl mx-auto space-y-8"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+          >
+            <motion.div
+              className="flex flex-wrap items-center justify-center gap-8 lg:gap-10"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
               {partners.map((partner, index) => (
                 <img
                   key={index}
@@ -261,9 +287,14 @@ export default function StatsAndPartnersSection() {
                   className={`${partner.width} h-auto object-contain`}
                 />
               ))}
-            </div>
+            </motion.div>
 
-            <div className="flex flex-wrap items-center justify-center gap-8 lg:gap-12">
+            <motion.div
+              className="flex flex-wrap items-center justify-center gap-8 lg:gap-12"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
               {partnersRow2.map((partner, index) => (
                 <img
                   key={index}
@@ -272,8 +303,8 @@ export default function StatsAndPartnersSection() {
                   className={`${partner.width} h-auto object-contain`}
                 />
               ))}
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
     </>

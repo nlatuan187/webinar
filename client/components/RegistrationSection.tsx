@@ -1,10 +1,16 @@
 import { Shield } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function RegistrationSection() {
   return (
     <section id="register" className="py-16 lg:py-24 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-12">
-        <div className="max-w-6xl mx-auto rounded-[20px] border border-brand-teal p-8 lg:p-12">
+        <motion.div
+          className="max-w-6xl mx-auto rounded-[20px] border border-brand-teal p-8 lg:p-12"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12">
             <div className="space-y-6 lg:col-span-2">
               <div>
@@ -129,7 +135,7 @@ export default function RegistrationSection() {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

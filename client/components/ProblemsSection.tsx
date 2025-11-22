@@ -1,4 +1,28 @@
+import { motion } from "framer-motion";
+
 export default function ProblemsSection() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: [0.0, 0.0, 0.2, 1.0] as [number, number, number, number],
+      },
+    },
+  };
+
   const problems = [
     {
       title: "Nỗi lo kép: Mua đỉnh - Ngộp lãi",
@@ -29,20 +53,31 @@ export default function ProblemsSection() {
   return (
     <section className="py-16 lg:py-24 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-12">
-        <div className="mb-12 lg:mb-16 text-center">
+        <motion.div
+          className="mb-12 lg:mb-16 text-center"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
           <div className="relative inline-block">
             <div className="absolute left-0 right-0 top-1/2 h-px bg-gradient-to-r from-white via-[#008993] to-white"></div>
             <h2 className="relative text-3xl sm:text-4xl lg:text-[45px] font-semibold text-[#0D0F2C] px-8 bg-white inline-block">
               Tham gia nếu bạn đang trăn trở
             </h2>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-6xl mx-auto">
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-6xl mx-auto"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+        >
           {problems.map((problem, index) => (
-            <div
+            <motion.div
               key={index}
               className="relative flex items-start gap-4 p-6 lg:p-8 rounded-lg border border-[#E6E7E9] bg-[#F4FBFB] hover:shadow-lg transition-shadow"
+              variants={itemVariants}
             >
               <div className="absolute -right-4 top-6 w-24 h-24 flex items-center justify-center">
                 <div className="w-24 h-24 rounded-full bg-gradient-to-b from-brand-teal to-brand-teal-dark flex items-center justify-center shadow-lg">
@@ -62,9 +97,9 @@ export default function ProblemsSection() {
                   {problem.description}
                 </p>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

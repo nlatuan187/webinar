@@ -1,6 +1,14 @@
 import { Check } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function PricingSection() {
+  const handleScrollToRegister = () => {
+    const registerSection = document.getElementById('register');
+    if (registerSection) {
+      registerSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   const tiers = [
     {
       name: "Vé thường",
@@ -60,14 +68,45 @@ export default function PricingSection() {
     },
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: {
+      opacity: 0,
+      y: 50
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: [0.0, 0.0, 0.2, 1.0] as [number, number, number, number],
+      },
+    },
+  };
+
   return (
     <section className="py-16 lg:py-24 bg-white rounded-xl">
       <div className="container mx-auto px-4 sm:px-6 lg:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto">
+        <motion.div
+          className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+        >
           {tiers.map((tier, index) => (
-            <div
+            <motion.div
               key={index}
-              className={`relative rounded-[26px] p-6 lg:p-8 ${tier.bgClass || "bg-white"
+              variants={cardVariants}
+              className={`relative rounded-[26px] p-6 lg:p-8 flex flex-col ${tier.bgClass || "bg-white"
                 } ${tier.borderClass ? `border-2 ${tier.borderClass}` : ""} ${tier.isPopular ? "shadow-2xl lg:scale-110 lg:-mt-4 lg:mb-4 lg:z-10" : ""
                 } transition-transform`}
             >
@@ -108,7 +147,7 @@ export default function PricingSection() {
                 </h3>
               </div>
 
-              <div className="space-y-4 mb-8">
+              <div className="space-y-4 flex-1">
                 {tier.features.map((feature, featureIndex) => {
                   const isObject = typeof feature === "object";
                   const text = isObject ? feature.text : feature;
@@ -145,13 +184,14 @@ export default function PricingSection() {
               </div>
 
               <button
-                className={`w-full py-3 rounded-[24px] font-medium text-[15px] transition-all ${tier.buttonClass}`}
+                onClick={handleScrollToRegister}
+                className={`w-full py-3 rounded-[24px] font-medium text-[15px] transition-all mt-8 ${tier.buttonClass}`}
               >
                 {tier.buttonText}
               </button>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

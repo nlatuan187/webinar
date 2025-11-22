@@ -1,18 +1,58 @@
+import { motion } from "framer-motion";
+
 export default function ValuesSection() {
+  const handleScrollToRegister = () => {
+    const registerSection = document.getElementById('register');
+    if (registerSection) {
+      registerSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: [0.0, 0.0, 0.2, 1.0] as [number, number, number, number],
+      },
+    },
+  };
+
   return (
     <section className="py-16 lg:py-24 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-12">
-        <div className="text-center mb-12 lg:mb-16">
+        <motion.div
+          className="text-center mb-12 lg:mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
           <h2 className="text-3xl sm:text-4xl lg:text-[50px] font-semibold text-[#0D0F2C] mb-3 leading-tight">
             5 GIÁ TRỊ THỰC TẾ
           </h2>
           <p className="text-3xl sm:text-4xl lg:text-[50px] font-semibold bg-gradient-to-r from-[#7FD5DB] via-brand-teal to-[#008993] bg-clip-text text-transparent">
             chỉ dành cho người tham gia
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 lg:items-stretch gap-6 lg:gap-8 max-w-7xl mx-auto mb-12">
-          <div className="col-span-1 flex flex-col gap-4">
+        <motion.div
+          className="grid grid-cols-1 lg:grid-cols-3 lg:items-stretch gap-6 lg:gap-8 max-w-7xl mx-auto mb-12"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+        >
+          <motion.div className="col-span-1 flex flex-col gap-4" variants={itemVariants}>
             <img
               src="https://api.builder.io/api/v1/image/assets/TEMP/f64c6494aa0a41653aeff83c88032c70486f9273?width=766"
               alt="Value 1"
@@ -45,17 +85,17 @@ export default function ValuesSection() {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="lg:col-span-1 flex flex-col gap-6">
+          <motion.div className="lg:col-span-1 flex flex-col gap-6" variants={itemVariants}>
             <div className="p-6 lg:p-8 rounded-lg border-2 sm:border-3 border-brand-teal bg-white flex-1 flex">
               <h3 className="text-xl sm:text-2xl lg:text-[26px] font-semibold text-black text-center mb-4 leading-tight">
                 Đón đầu cơ hội mua BĐS thông minh dựa trên chu kỳ kinh tế
               </h3>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="lg:col-span-1 flex flex-col gap-6">
+          <motion.div className="lg:col-span-1 flex flex-col gap-6" variants={itemVariants}>
             <div className="p-6 lg:p-8 rounded-lg border-2 sm:border-3 border-brand-teal bg-gradient-to-br from-brand-cyan via-brand-cyan-light to-brand-cyan">
               <div className="flex items-center justify-center gap-3 mb-4">
                 <img
@@ -110,17 +150,22 @@ export default function ValuesSection() {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
-        <div className="text-center">
-          <a
-            href="#register"
+        <motion.div
+          className="text-center"
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          <button
+            onClick={handleScrollToRegister}
             className="inline-flex items-center justify-center px-8 py-4 text-xl sm:text-[22px] font-semibold text-white bg-gradient-to-r from-[#004D52] to-brand-teal rounded-lg hover:shadow-xl transition-all"
           >
-            ĐĂNG KÝ NGAY &gt;&gt;
-          </a>
-        </div>
+            Đăng ký ngay &gt;&gt;
+          </button>
+        </motion.div>
       </div>
     </section>
   );

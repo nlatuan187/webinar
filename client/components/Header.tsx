@@ -1,8 +1,14 @@
 import { ChevronDown } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function Header() {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-b from-[#E2F6FC] to-transparent">
+    <motion.header
+      className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-b from-[#E2F6FC] to-transparent"
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6, ease: [0.0, 0.0, 0.2, 1.0] as [number, number, number, number] }}
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-12">
         <nav className="flex items-center justify-between py-6">
           <div className="flex-shrink-0">
@@ -15,13 +21,13 @@ export default function Header() {
 
           <div className="hidden lg:flex items-center gap-8 xl:gap-12">
             <a
-              href="#"
+              href="https://tuvanmuanha.finful.co"
               className="text-[#656C86] text-[15px] font-semibold hover:text-brand-teal transition-colors"
             >
               Tư vấn mua nhà
             </a>
             <a
-              href="#"
+              href="https://tuvandautu.finful.co"
               className="text-[#656C86] text-[15px] font-semibold hover:text-brand-teal transition-colors"
             >
               Tư vấn đầu tư
@@ -43,7 +49,7 @@ export default function Header() {
               Liên hệ
             </a>
             <a
-              href="#register"
+              href="https://muanha.finful.co"
               className="flex items-center gap-2 px-4 py-2 rounded-lg bg-brand-teal text-white text-[14px] font-medium shadow-md hover:bg-brand-teal-dark transition-colors"
             >
               Lập kế hoạch mua nhà
@@ -88,6 +94,6 @@ export default function Header() {
           </button>
         </nav>
       </div>
-    </header>
+    </motion.header>
   );
 }

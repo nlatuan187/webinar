@@ -1,6 +1,29 @@
 import { Check } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function ContentSection() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: [0.0, 0.0, 0.2, 1.0] as [number, number, number, number],
+      },
+    },
+  };
+
   const sections = [
     {
       title: "Phần 1: Chu kỳ ngành Bất động sản tại Việt Nam",
@@ -61,15 +84,26 @@ export default function ContentSection() {
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
-        <h2 className="text-3xl sm:text-4xl lg:text-[50px] font-semibold text-white text-center mb-12 lg:mb-16">
+        <motion.h2
+          className="text-3xl sm:text-4xl lg:text-[50px] font-semibold text-white text-center mb-12 lg:mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
           Nội dung chia sẻ
-        </h2>
+        </motion.h2>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto">
+        <motion.div
+          className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+        >
           {sections.map((section, index) => (
-            <div
+            <motion.div
               key={index}
               className="p-6 lg:p-8 rounded-[20px] border border-white/70 bg-gradient-to-b from-white/35 to-white/0 backdrop-blur-md shadow-lg"
+              variants={cardVariants}
             >
               <h3 className="text-lg sm:text-xl lg:text-[21px] font-semibold text-white mb-8 leading-tight">
                 {section.title}
@@ -89,9 +123,9 @@ export default function ContentSection() {
                   </div>
                 ))}
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
