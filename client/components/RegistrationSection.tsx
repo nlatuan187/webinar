@@ -1,7 +1,16 @@
 import { Shield } from "lucide-react";
 import { motion } from "framer-motion";
+import { useState } from "react";
+import SuccessPopup from "./SuccessPopup";
 
 export default function RegistrationSection() {
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsPopupOpen(true);
+  };
+
   return (
     <section id="register" className="py-16 lg:py-24 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-12">
@@ -12,7 +21,7 @@ export default function RegistrationSection() {
           transition={{ duration: 0.6 }}
         >
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12">
-            <div className="space-y-6 lg:col-span-2">
+            <form onSubmit={handleSubmit} className="space-y-6 lg:col-span-2">
               <div>
                 <label className="block text-[#333] text-base font-semibold mb-2">
                   Họ tên*
@@ -20,6 +29,7 @@ export default function RegistrationSection() {
                 <input
                   type="text"
                   placeholder="Nhập họ tên"
+                  required
                   className="w-full px-4 py-3 rounded-md border border-brand-teal bg-[#FAFAFA] text-[15px] font-medium text-[#333] placeholder:text-[#B0B0B0] focus:outline-none focus:ring-2 focus:ring-brand-teal"
                 />
               </div>
@@ -31,6 +41,7 @@ export default function RegistrationSection() {
                 <input
                   type="email"
                   placeholder="Nhập email"
+                  required
                   className="w-full px-4 py-3 rounded-md border border-brand-teal bg-[#FAFAFA] text-[15px] font-medium text-[#333] placeholder:text-[#B0B0B0] focus:outline-none focus:ring-2 focus:ring-brand-teal"
                 />
               </div>
@@ -42,6 +53,7 @@ export default function RegistrationSection() {
                 <input
                   type="tel"
                   placeholder="Nhập số điện thoại"
+                  required
                   className="w-full px-4 py-3 rounded-md border border-brand-teal bg-[#FAFAFA] text-[15px] font-medium text-[#333] placeholder:text-[#B0B0B0] focus:outline-none focus:ring-2 focus:ring-brand-teal"
                 />
               </div>
@@ -74,11 +86,14 @@ export default function RegistrationSection() {
               </div>
 
               <div className="flex justify-center">
-                <button className="w-full sm:w-auto px-12 py-4 bg-gradient-to-r from-[#004D52] to-brand-teal text-white text-lg font-semibold rounded-lg hover:shadow-xl transition-all">
+                <button
+                  type="submit"
+                  className="w-full sm:w-auto px-12 py-4 bg-gradient-to-r from-[#004D52] to-brand-teal text-white text-lg font-semibold rounded-lg hover:shadow-xl transition-all"
+                >
                   ĐĂNG KÝ NGAY &gt;&gt;
                 </button>
               </div>
-            </div>
+            </form>
 
             <div className="flex flex-col justify-between h-full lg:col-span-3 space-y-6">
               <h3 className="text-xl sm:text-[24px] font-semibold text-[#333] text-center">
@@ -137,6 +152,9 @@ export default function RegistrationSection() {
           </div>
         </motion.div>
       </div>
+
+      {/* Success Popup */}
+      <SuccessPopup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} />
     </section>
   );
 }

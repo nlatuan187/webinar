@@ -4,14 +4,14 @@ import { motion } from "framer-motion";
 export default function Header() {
   return (
     <motion.header
-      className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-b from-[#E2F6FC] to-transparent"
+      className="fixed left-0 right-0 z-50 bg-[#E2F6FC]"
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: [0.0, 0.0, 0.2, 1.0] as [number, number, number, number] }}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-12">
         <nav className="flex items-center justify-between py-6">
-          <div className="flex-shrink-0">
+          <div className="flex-shrink-0 bg">
             <img
               src="https://api.builder.io/api/v1/image/assets/TEMP/8899c1bc80022455a73f2def6807e68c9b2e662f?width=230"
               alt="Finful Logo"
@@ -47,33 +47,6 @@ export default function Header() {
               className="text-[#656C86] text-[15px] font-semibold hover:text-brand-teal transition-colors"
             >
               Liên hệ
-            </a>
-            <a
-              href="https://muanha.finful.co"
-              className="flex items-center gap-2 px-4 py-2 rounded-lg bg-brand-teal text-white text-[14px] font-medium shadow-md hover:bg-brand-teal-dark transition-colors"
-            >
-              Lập kế hoạch mua nhà
-              <svg
-                width="12"
-                height="12"
-                viewBox="0 0 12 12"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0.5 6H11"
-                  stroke="white"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M6.5 1L10.7954 5.29545L6.5 9.59088"
-                  stroke="white"
-                  strokeWidth="1.27273"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
             </a>
           </div>
 

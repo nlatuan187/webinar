@@ -105,7 +105,7 @@ export default function ValuesSection() {
               </h4>
 
               {/* Subtitle */}
-              <p className="text-base sm:text-lg lg:text-[20px] font-light text-whitet">
+              <p className="text-base sm:text-lg lg:text-[20px] font-light text-white">
                 gồm vay mua để ở và để đầu tư
               </p>
               <div className="inline-flex items-center gap-3 px-6 py-3 mt-5 mb-6 rounded-full bg-white">
