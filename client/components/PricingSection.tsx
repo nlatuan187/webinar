@@ -18,8 +18,8 @@ export default function PricingSection() {
         "Quyền truy cập công cụ AI đánh giá tính khả thi của mục tiêu mua nhà",
       ],
       buttonText: "Đăng ký",
-      buttonClass: "bg-brand-teal text-white hover:bg-brand-teal-dark",
-      borderClass: "border-brand-teal",
+      buttonClass: "bg-[#00acb8] text-white hover:bg-[#007880]",
+      borderClass: "border-[#00acb8]",
     },
     {
       name: "Vé nâng cao",
@@ -39,8 +39,8 @@ export default function PricingSection() {
         },
       ],
       buttonText: "Đăng ký",
-      buttonClass: "bg-brand-teal text-white hover:bg-brand-teal-dark",
-      borderClass: "border-brand-teal",
+      buttonClass: "bg-[#00acb8] text-white hover:bg-[#007880]",
+      borderClass: "border-[#00acb8]",
     },
     {
       name: "Vé VVIP",
@@ -107,7 +107,7 @@ export default function PricingSection() {
               key={index}
               variants={cardVariants}
               className={`relative rounded-[26px] p-6 lg:p-8 flex flex-col ${tier.bgClass || "bg-white"
-                } ${tier.borderClass ? `border-2 ${tier.borderClass}` : ""} ${tier.isPopular ? "shadow-2xl lg:scale-110 lg:-mt-4 lg:mb-4 lg:z-10" : ""
+                } ${tier.borderClass ? `border-2 ${tier.borderClass}` : ""} ${tier.isPopular ? "shadow-2xl lg:scale-105 lg:z-10" : ""
                 } transition-transform`}
             >
               {tier.badge && (
