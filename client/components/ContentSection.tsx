@@ -29,7 +29,7 @@ export default function ContentSection() {
   ];
 
   return (
-    <section className="relative py-16 lg:py-24 bg-gradient-to-b from-brand-teal to-brand-teal-dark overflow-hidden">
+    <section className="relative py-16 lg:py-24 bg-gradient-to-b from-brand-teal to-brand-teal-dark">
       <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-20">
         <svg
           className="absolute -left-48 top-32"

@@ -61,21 +61,15 @@ export default function PricingSection() {
   ];
 
   return (
-    <section className="py-16 lg:py-24 bg-[#E2F6FC]">
+    <section className="py-16 lg:py-24 bg-white rounded-xl">
       <div className="container mx-auto px-4 sm:px-6 lg:px-12">
-        <h2 className="text-3xl sm:text-4xl lg:text-[60px] font-semibold text-[#0D0F2C] text-center mb-12 lg:mb-16 leading-tight">
-          Thông tin vé tham gia sự kiện
-        </h2>
-
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto">
           {tiers.map((tier, index) => (
             <div
               key={index}
-              className={`relative rounded-[26px] p-6 lg:p-8 ${
-                tier.bgClass || "bg-white"
-              } ${tier.borderClass ? `border-2 ${tier.borderClass}` : ""} ${
-                tier.isPopular ? "shadow-2xl lg:-mt-8 lg:mb-8" : ""
-              }`}
+              className={`relative rounded-[26px] p-6 lg:p-8 ${tier.bgClass || "bg-white"
+                } ${tier.borderClass ? `border-2 ${tier.borderClass}` : ""} ${tier.isPopular ? "shadow-2xl lg:scale-110 lg:-mt-4 lg:mb-4 lg:z-10" : ""
+                } transition-transform`}
             >
               {tier.badge && (
                 <div className="flex justify-end mb-4">
@@ -90,28 +84,25 @@ export default function PricingSection() {
               <div className="mb-6">
                 <div className="mb-2">
                   <span
-                    className={`text-2xl sm:text-3xl font-bold ${
-                      tier.priceColor || "text-[#333]"
-                    }`}
+                    className={`text-2xl sm:text-3xl font-bold ${tier.priceColor || "text-[#333]"
+                      }`}
                   >
                     {tier.price}
                   </span>
                 </div>
                 {tier.originalPrice && (
                   <p
-                    className={`text-sm italic ${
-                      tier.textColor
-                        ? `${tier.textColor} opacity-70`
-                        : "text-[#333]/70"
-                    }`}
+                    className={`text-sm italic ${tier.textColor
+                      ? `${tier.textColor} opacity-70`
+                      : "text-[#333]/70"
+                      }`}
                   >
                     {tier.originalPrice}
                   </p>
                 )}
                 <h3
-                  className={`text-2xl sm:text-[28px] font-medium mt-3 ${
-                    tier.textColor || "text-[#333]"
-                  }`}
+                  className={`text-2xl sm:text-[28px] font-medium mt-3 ${tier.textColor || "text-[#333]"
+                    }`}
                 >
                   {tier.name}
                 </h3>
@@ -128,24 +119,21 @@ export default function PricingSection() {
                     <div key={featureIndex} className="flex items-start gap-3">
                       <div className="flex-shrink-0 mt-1">
                         <div
-                          className={`w-4 h-4 rounded-full ${
-                            tier.textColor
-                              ? "border-white/30"
-                              : "border-brand-teal/30"
-                          } border flex items-center justify-center`}
+                          className={`w-4 h-4 rounded-full ${tier.textColor
+                            ? "border-white/30"
+                            : "border-brand-teal/30"
+                            } border flex items-center justify-center`}
                         >
                           <Check
-                            className={`w-2.5 h-2.5 ${
-                              tier.textColor ? "text-white" : "text-brand-teal"
-                            }`}
+                            className={`w-2.5 h-2.5 ${tier.textColor ? "text-white" : "text-brand-teal"
+                              }`}
                             strokeWidth={3}
                           />
                         </div>
                       </div>
                       <p
-                        className={`text-sm flex-1 ${
-                          tier.textColor || "text-[#333]"
-                        }`}
+                        className={`text-sm flex-1 ${tier.textColor || "text-[#333]"
+                          }`}
                       >
                         {isBold && <strong>{text}</strong>}
                         {!isBold && text}

@@ -11,22 +11,51 @@ export default function ValuesSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto mb-12">
-          <div className="relative">
+        <div className="grid grid-cols-1 lg:grid-cols-3 lg:items-stretch gap-6 lg:gap-8 max-w-7xl mx-auto mb-12">
+          <div className="col-span-1 flex flex-col gap-4">
             <img
               src="https://api.builder.io/api/v1/image/assets/TEMP/f64c6494aa0a41653aeff83c88032c70486f9273?width=766"
               alt="Value 1"
               className="w-full h-auto rounded-lg"
             />
+            <div className="relative lg:p-4 text-center rounded-lg border-2 border-brand-teal bg-gradient-to-b from-brand-teal to-[#007880] overflow-hidden flex-1 flex flex-col">
+              <div className="absolute inset-0 opacity-30 pointer-events-none">
+                <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#EEEEEE] rounded-full blur-[125px]"></div>
+              </div>
+
+              <div className="relative z-10 flex flex-col items-center justify-between h-full">
+                <div className="flex-1">
+                  <h3 className="text-2xl sm:text-3xl lg:text-[26px] font-semibold text-white text-center lg:text-left leading-tight">
+                    60 phút tham vấn 1:1 trực tiếp với chuyên gia tài chính và
+                    bất động sản
+                  </h3>
+                </div>
+
+                <div className="flex items-end justify-center">
+                  <img
+                    src="https://api.builder.io/api/v1/image/assets/TEMP/89f7100def3177e1e51e09824338e1eb2629edca?width=492"
+                    alt="Expert 1"
+                    className="h-64 sm:h-80 w-auto object-cover rounded-lg relative z-10"
+                  />
+                  <img
+                    src="https://api.builder.io/api/v1/image/assets/TEMP/8bb63f46c03b33e74b2f45dfe7ae028513366b34?width=478"
+                    alt="Expert 2"
+                    className="h-64 sm:h-80 w-auto object-cover rounded-lg -ml-12 sm:-ml-16"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div className="lg:col-span-2 space-y-6">
-            <div className="p-6 lg:p-8 rounded-lg border-2 sm:border-3 border-brand-teal bg-white">
+          <div className="lg:col-span-1 flex flex-col gap-6">
+            <div className="p-6 lg:p-8 rounded-lg border-2 sm:border-3 border-brand-teal bg-white flex-1 flex">
               <h3 className="text-xl sm:text-2xl lg:text-[26px] font-semibold text-black text-center mb-4 leading-tight">
                 Đón đầu cơ hội mua BĐS thông minh dựa trên chu kỳ kinh tế
               </h3>
             </div>
+          </div>
 
+          <div className="lg:col-span-1 flex flex-col gap-6">
             <div className="p-6 lg:p-8 rounded-lg border-2 sm:border-3 border-brand-teal bg-gradient-to-br from-brand-cyan via-brand-cyan-light to-brand-cyan">
               <div className="flex items-center justify-center gap-3 mb-4">
                 <img
@@ -45,7 +74,6 @@ export default function ValuesSection() {
                 gồm vay mua để ở và để đầu tư
               </p>
             </div>
-
             <div className="p-6 lg:p-8 rounded-lg border-2 sm:border-3 border-brand-teal bg-gradient-to-br from-white to-brand-cyan-pale">
               <h3 className="text-xl sm:text-2xl lg:text-[25px] font-semibold text-black text-center mb-2 leading-tight">
                 Nhận bộ quà đặc biệt & tài liệu chuyên sâu từ
@@ -79,36 +107,6 @@ export default function ValuesSection() {
                   <p className="text-sm sm:text-[15px] font-medium">
                     trong năm tiếp theo
                   </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="lg:col-span-3">
-            <div className="relative p-8 lg:p-12 rounded-lg border-2 border-brand-teal bg-gradient-to-b from-brand-teal to-[#007880] overflow-hidden">
-              <div className="absolute inset-0 opacity-30 pointer-events-none">
-                <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#EEEEEE] rounded-full blur-[125px]"></div>
-              </div>
-
-              <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8">
-                <div className="flex-1">
-                  <h3 className="text-2xl sm:text-3xl lg:text-[26px] font-semibold text-white text-center lg:text-left mb-8 leading-tight">
-                    60 phút tham vấn 1:1 trực tiếp với chuyên gia tài chính và
-                    bất động sản
-                  </h3>
-                </div>
-
-                <div className="flex gap-4">
-                  <img
-                    src="https://api.builder.io/api/v1/image/assets/TEMP/89f7100def3177e1e51e09824338e1eb2629edca?width=492"
-                    alt="Expert 1"
-                    className="h-64 sm:h-80 w-auto object-cover rounded-lg"
-                  />
-                  <img
-                    src="https://api.builder.io/api/v1/image/assets/TEMP/8bb63f46c03b33e74b2f45dfe7ae028513366b34?width=478"
-                    alt="Expert 2"
-                    className="h-64 sm:h-80 w-auto object-cover rounded-lg"
-                  />
                 </div>
               </div>
             </div>

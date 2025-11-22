@@ -5,8 +5,8 @@ export default function RegistrationSection() {
     <section id="register" className="py-16 lg:py-24 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-12">
         <div className="max-w-6xl mx-auto rounded-[20px] border border-brand-teal p-8 lg:p-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-            <div className="space-y-6">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12">
+            <div className="space-y-6 lg:col-span-2">
               <div>
                 <label className="block text-[#333] text-base font-semibold mb-2">
                   Họ tên*
@@ -67,17 +67,19 @@ export default function RegistrationSection() {
                 </div>
               </div>
 
-              <button className="w-full sm:w-auto px-12 py-4 bg-gradient-to-r from-[#004D52] to-brand-teal text-white text-lg font-semibold rounded-lg hover:shadow-xl transition-all">
-                ĐĂNG KÝ NGAY &gt;&gt;
-              </button>
+              <div className="flex justify-center">
+                <button className="w-full sm:w-auto px-12 py-4 bg-gradient-to-r from-[#004D52] to-brand-teal text-white text-lg font-semibold rounded-lg hover:shadow-xl transition-all">
+                  ĐĂNG KÝ NGAY &gt;&gt;
+                </button>
+              </div>
             </div>
 
-            <div className="space-y-8">
-              <h3 className="text-2xl sm:text-[28px] font-semibold text-[#333] text-center">
-                THÔNG TIN CHUYỂN KHO���N ĐĂNG KÝ
+            <div className="flex flex-col justify-between h-full lg:col-span-3 space-y-6">
+              <h3 className="text-xl sm:text-[24px] font-semibold text-[#333] text-center">
+                THÔNG TIN CHUYỂN KHOẢN ĐĂNG KÝ
               </h3>
 
-              <div className="flex flex-col sm:flex-row items-center gap-6">
+              <div className="flex flex-col sm:flex-row items-center gap-4">
                 <img
                   src="https://api.builder.io/api/v1/image/assets/TEMP/a38d9e59d9d6e017f597ec3ac03aaf3ddd38ec17?width=522"
                   alt="QR Code"
@@ -85,31 +87,31 @@ export default function RegistrationSection() {
                 />
 
                 <div className="space-y-4 flex-1">
-                  <p className="text-lg sm:text-xl text-[#333]">
+                  <p className="text-[15px] text-[#333]">
                     <span className="font-semibold text-brand-teal">
                       Nhân hàng:
                     </span>{" "}
                     Ngân hàng Quân đội (MB)
                   </p>
-                  <p className="text-lg sm:text-xl text-[#333]">
+                  <p className="text-[15px] text-[#333]">
                     <span className="font-semibold text-brand-teal">
                       Chủ tài khoản:
                     </span>{" "}
                     CONG TY CO PHAN FINFUL
                   </p>
-                  <p className="text-lg sm:text-xl text-[#333]">
+                  <p className="text-[15px] text-[#333]">
                     <span className="font-semibold text-brand-teal">
                       Số tài khoản:
                     </span>{" "}
                     9602345678
                   </p>
-                  <p className="text-lg sm:text-xl text-[#333]">
+                  <p className="text-[15px] text-[#333]">
                     <span className="font-semibold text-brand-teal">
                       Nội dung:
                     </span>{" "}
                     Loại vé - Họ tên - Số điện thoại
                   </p>
-                  <p className="text-lg sm:text-xl text-[#333]">
+                  <p className="text-[15px] text-[#333]">
                     <span className="font-semibold text-brand-teal">
                       Ví dụ:
                     </span>{" "}
@@ -118,7 +120,7 @@ export default function RegistrationSection() {
                 </div>
               </div>
 
-              <div className="flex items-start gap-4 p-4 bg-gray-50 rounded-lg">
+              <div className="flex items-start gap-4 rounded-lg">
                 <Shield className="w-8 h-8 text-brand-teal flex-shrink-0 mt-1" />
                 <p className="text-base sm:text-lg text-[#333] italic">
                   Sau khi xác nhận thông tin chuyển khoản, BTC sẽ gửi email vé
