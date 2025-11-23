@@ -64,12 +64,7 @@ export default function Footer() {
               >
                 Đồng hành và Tư vấn Mua nhà
               </a>
-              <a
-                href="#"
-                className="block text-sm text-white hover:text-brand-teal transition-colors"
-              >
-                Đồng hành và Tư vấn Đầu tư
-              </a>
+
               <a
                 href="#"
                 className="block text-sm text-white hover:text-brand-teal transition-colors"

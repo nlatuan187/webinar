@@ -26,12 +26,7 @@ export default function Header() {
             >
               Tư vấn mua nhà
             </a>
-            <a
-              href="https://tuvandautu.finful.co"
-              className="text-[#656C86] text-[15px] font-semibold hover:text-brand-teal transition-colors"
-            >
-              Tư vấn đầu tư
-            </a>
+
             <button className="flex items-center gap-1 text-[#656C86] text-[15px] font-semibold hover:text-brand-teal transition-colors">
               Giáo dục tài chính
               <ChevronDown className="w-4 h-4" />
